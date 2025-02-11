@@ -217,7 +217,7 @@ def main():
     img_score = detector.synth_img_detection(img=img)
 
     # Print the scores
-    print('Real-vs-synthetic image score: {}'.format(img_score))
+    print(img_score)
 
     return 0
 
