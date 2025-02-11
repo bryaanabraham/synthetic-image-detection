@@ -46,9 +46,9 @@ class FullySynthvsLaunderedDetector:
         else:
             state = state_tmp
         incomp_keys = net.load_state_dict(state['net'], strict=True)
-        print(incomp_keys)
+        # print(incomp_keys)
         self.net = net
-        print('Model for fully-synthetic vs laundered image detection loaded!')
+        # print('Model for fully-synthetic vs laundered image detection loaded!')
 
         net_normalizer = self.net.get_normalizer()
         transform = [
@@ -88,7 +88,7 @@ class FullySynthvsLaunderedDetector:
             img2[:, :, 2] = img
             img = img2.copy()
         if img.shape[2] > 3:
-            print('Omitting alpha channel')
+            # print('Omitting alpha channel')
             img = img[:, :, :3]
 
         if self.select_face_test:
@@ -217,7 +217,7 @@ def main():
     img_score = detector.laundered_img_detection(img=img)
 
     # Print the scores
-    print('Fully-synth vs Laundered image score: {}'.format(img_score))
+    print(img_score)
 
     return 0
 
