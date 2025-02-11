@@ -46,9 +46,9 @@ class RealvsSyntheticDetector:
         else:
             state = state_tmp
         incomp_keys = net.load_state_dict(state['net'], strict=True)
-        print(incomp_keys)
+        # print(incomp_keys)
         self.net = net
-        print('Model for real vs synthetic image detection loaded!')
+        # print('Model for real vs synthetic image detection loaded!')
 
         net_normalizer = self.net.get_normalizer()
         transform = [
@@ -88,7 +88,7 @@ class RealvsSyntheticDetector:
             img2[:, :, 2] = img
             img = img2.copy()
         if img.shape[2] > 3:
-            print('Omitting alpha channel')
+            # print('Omitting alpha channel')
             img = img[:, :, :3]
 
         if self.select_face_test:
